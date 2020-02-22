@@ -1,0 +1,13 @@
+<h3>
+  The UTC time format in the calendar.
+</h3>
+<!-- 
+<p-calendar [(ngModel)]="value" showTime="showTime" hourFormat="24" [utc]="true"></p-calendar>
+<span>{{ value|json }}</span> -->
+
+
+
+<form [formGroup]="myGroup">
+  <p-calendar formControlName="date1" [minDate]="minDateValue" [maxDate]="maxDateValue"
+  [monthNavigator]="true" [yearNavigator]="true" yearRange="2020:2022" (onFocus)="TEST($event)"></p-calendar>
+</form>
