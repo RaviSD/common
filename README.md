@@ -84,15 +84,6 @@ cd angular7-project
 npm install ../lib-workspace/dist/approver-library/approver-library-0.0.1.tgz
 npm start
 
-=============== P-CALENDAR --------------
-
-https://html.developreference.com/article/10096062/primeNg+calendar+unable+to+disable+dates+from+an+array+or+highlight+current+Date
-
-https://medium.com/5bayt/using-datepicker-range-in-angular-ced2fd0389da
-
-https://github.com/primefaces/primeng/issues/7993
-
-https://medium.com/@ng.gayathri/angular-extending-primeng-controls-41dcb52ae4fa
 =============================
 #PROJECT#
 
