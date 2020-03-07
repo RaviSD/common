@@ -1,0 +1,148 @@
+<p>
+    inside lib => approver-edit works!
+</p>
+<!--
+<h3>Checkbox Selection</h3>
+<p-table [columns]="cols" [value]="cars" [(selection)]="selectedCars3" dataKey="vin">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th style="width: 3em">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td>
+                <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+            </td>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <ul>
+            <li *ngFor="let car of selectedCars3" style="text-align: left">
+                {{car.vin + ' - ' + car.brand + ' - ' + car.year + ' - ' + car.color}}
+            </li>
+        </ul>
+    </ng-template>
+</p-table>
+-->
+
+<!--start-->
+<div [ngClass]="{'news-active': 'content-section implementation', 'content-section implementation': true}">
+    <!--<p-toast></p-toast>-->
+    #CARS==>{{cars | json}}#
+    <h3 class="first">Cell Editing</h3>
+    <!-- <form> -->
+        <p-table [value]="cars" (onRowReorder)="handleOnRowReorder($event)">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3em">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th>Vin</th>
+                    <th>Year</th>
+                    <th>Brand</th>
+                    <th>Color</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData  let-index="rowIndex">
+                <tr [pSelectableRow]="rowData"  [pReorderableRow]="index">
+                    <td>
+                        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                    </td>
+                    <td>
+                        <i class="pi pi-bars" style="display: flex;justify-content: center;" pReorderableRowHandle></i>
+                        <input pInputText type="text" [(ngModel)]="rowData.vin">
+
+
+                    </td>
+                    <td>
+                        <!--<input pInputText type="text" [(ngModel)]="rowData.year">-->
+                        {{rowData.year}}
+
+                    </td>
+                    <td>
+
+
+                        <!--<p-dropdown [options]="brands" [(ngModel)]="rowData.brand" [style]="{'width':'100%'}"></p-dropdown>-->
+                        <p-multiSelect [options]="asymmetricAu" [(ngModel)]="rowData.asymmetric" [defaultLabel]="'No'"
+                            [filter]="false" [disabled]=" rowData.asymmetric.length > 1 ? true: false"
+                            (onChange)="isAsymmetricApply($event)" [panelStyle]="{width:'150px'}"></p-multiSelect>
+
+                    </td>
+                    <td>
+                        <!--<input pInputText type="text" [(ngModel)]="rowData.color">-->
+                        {{rowData.color}}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    <!-- </form> -->
+
+    
+    <!--
+    <h3>Row Editing</h3>
+    <p-table [value]="cars" dataKey="vin" editMode="row">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Vin</th>
+                <th>Year</th>
+                <th>Brand</th>
+                <th>Color</th>
+                <th style="width:8em"></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-editing="editing" let-ri="rowIndex">
+            <tr [pEditableRow]="rowData">
+                <td>
+                    {{rowData.vin}}
+                </td>
+                <td>
+                    
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.year" required [ngStyle]="{'width':'100%'}">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.year}}
+                        </ng-template>
+                    
+                </td>
+                <td>
+                    
+                        <ng-template pTemplate="input">
+                            <p-dropdown [options]="brands" [(ngModel)]="rowData.brand" [style]="{'width':'100%'}"></p-dropdown>
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.brand}}
+                        </ng-template>
+                    
+                </td>
+                <td>
+                    
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.color" [ngStyle]="{'width':'100%'}">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.color}}
+                        </ng-template>
+                    
+                </td>
+                <td style="text-align:center">
+                    <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil" class="ui-button-info" (click)="onRowEditInit(rowData)"></button>
+                    <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check" class="ui-button-success" style="margin-right: .5em" (click)="onRowEditSave(rowData)"></button>
+                    <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times" class="ui-button-danger" (click)="onRowEditCancel(rowData, ri)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>-->
+</div>
+
+
+<!--end-->
