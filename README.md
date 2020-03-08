@@ -112,19 +112,34 @@ ng generate service core-module/core-service/approver-service
 
 // Global angular changes
 npm uninstall -g angular-cli
+
 npm cache verify
+
 npm install -g @angular/cli@latest => npm install -g @angular/cli@6.0.0
 
+
 //Local mpackages:
+
 git clone <YOUR_PROJECT>
+
 cd <YOUR_PROJECT>
+
 rm -rf node_modules
+
 npm uninstall --save-dev angular-cli
+
 npm install --save-dev @angular/cli@latest => npm install --save-dev @angular/cli@6.0.0
+
 ng update @angular/cli
+
 npm install
+
 ng update @angular/core => ng update @angular/core --force
+
 npm install -g rxjs-tslint
+
 rxjs-5-to-6-migrate -p src/tsconfig.app.json
+
 npm install rxjs-compat --save-dev
+
 
